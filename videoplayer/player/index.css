@@ -1,0 +1,179 @@
+@import 'https://at.alicdn.com/t/font_1455405_od9l2oc68on.css';
+
+*{
+    margin: 0;
+    padding:0;
+}
+/*播放器容器  */
+.videoContainer{
+    width:650px;
+    height: 400px;
+    background-color: #000;
+    margin: 0 auto;
+    position: relative;
+}
+/* video 标签 */
+.videoContainer video{
+    width: 100%;
+    height: 100%;
+}
+/* 在video标签覆盖一层遮罩，不让用户直接操作video元素 */
+.videoContainer .modal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoContainer .modal.pause{
+    background-color:rgba(0,0,0,0.4);
+}
+/* 播放样式 */
+.videoContainer .modal .iconbofang{
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    top: calc(50% - 25px);
+    left:calc(50% - 25px);
+    cursor: pointer;
+}  
+/* 如果是播放状态，让播放按钮消失 */
+.videoContainer .modal .iconbofang.play {
+    transform: scale(2);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+/* 底部工具条 */
+.videoContainer .modal .toobar{
+    position: absolute;
+    bottom: 0px;
+    height: 45px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 工具条的左面的部分 */
+.videoContainer .modal .toobar .leftMenu{
+    flex: 1 1 40%;
+    height: 100%;
+    color: #fff;
+}
+/* 播放 */
+.videoContainer .modal .toobar .leftMenu .iconfont {
+    line-height: 45px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+/* 进度条 */
+.videoContainer .modal .toobar .leftMenu span{
+    /* 禁止选中文本 */
+    user-select: none;
+    font-size: 14px;
+    color: #fff;
+}
+/* 工具条的右部 */
+.videoContainer .modal .toobar .rightMenu{
+    flex: 1 1 60%;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+/* 倍速部分 */
+.videoContainer .modal .toobar .rightMenu .playspeed{
+    position: absolute;
+    bottom: 45px;
+    width:50px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 13px;
+    /* 向左移动15个像素 */
+    transform: translateX(-15px);
+    display: none;
+}
+/* 控制播放速度显示层 */
+.videoContainer .modal .toobar .rightMenu .playspeed.active{
+    transition:  1s;
+    display: block;
+}
+.videoContainer .modal .toobar .rightMenu .playspeed ul{
+    line-height: 25px;
+    padding:5px 0;
+    text-align: center;
+    list-style: none;
+}
+.videoContainer .modal .toobar .rightMenu .playspeed ul li.choose{
+    color: coral;
+}
+.videoContainer .modal .toobar .rightMenu .playspeed ul li:hover{
+    color: coral;
+}
+/* 全屏，音量等的样式 */
+.videoContainer .modal .toobar .rightMenu .iconfont{
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    width:35px;
+    margin: 0 5px;
+} 
+/* 音量键 */
+.videoContainer .modal .toobar .rightMenu .iconyinliang{
+    width: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width 0.2s;
+}
+.videoContainer .modal .toobar .rightMenu .iconyinliang:hover{
+    width: 120px;
+    overflow: visible;
+}
+/* 音量的进度条 */
+.videoContainer .modal .toobar .rightMenu .iconyinliang input{
+    height: 12px;
+    width: 90px;
+}
+/* 进度条遮罩 */
+.progressbarModal{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background-color: red;
+    bottom: 48px;
+}
+
+/* 进度条 */
+.videoContainer .modal .progressbar{
+    cursor: pointer;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    bottom: 45px;
+}
+/* 已经播放的部分 */
+.videoContainer .modal .progressbar .curentTime{
+    width: 0;
+    height: 100%;
+    background-color:coral;
+}
+/* 进度条的小圆点 */
+.videoContainer .modal .progressbar .controlBtn{
+    width: 20px;
+    height: 20px;
+    background:coral ;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    /* 底部的小圆点按钮移动到进度条上
+    不改变left的原因是为了方便后面的js操作
+    */
+    transform: translateX(-10px);
+    transform: translateY(-10px);
+}
+

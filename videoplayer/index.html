@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top">
+            <i class="iconfont iconlist" ></i>
+            <span>世界上只有一种真正的英雄主义，那就是在认清生活的真相后依然热爱生活！</span>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <div class="videoList">
+                </div>
+                <div id="test"></div>
+
+                <hr>
+                © 2019 msse
+            </div>
+            <div class="right">
+                <div class=".bottom .right">
+                    <div class="videoContainer">
+                        <video src="./player/shanhai.mp4" id="video"></video>
+                        <div class="modal pause">
+                            <i class="iconfont iconbofang"></i>
+                            <div class="toobar">
+                                <div class="leftMenu">
+                                    <!-- iconbofang2是播放按钮 -->
+                                    <i class="iconfont  iconbofang1 playVideoBottom"></i>
+                                    <span id="curTime">00:00</span> /
+                                    <span id="totalTime">00:00</span>
+                                </div>
+                                <div class="rightMenu">
+                                    <div class="iconfont iconyinliang">
+                                        <input min="0" max="100" type="range" id="volume">
+                                    </div>
+                                    <div class="iconfont iconsudu iconspeed">
+                                        <div class="playspeed">
+                                            <ul id="speedList">
+                                                <li>0.5倍</li>
+                                                <li>正常</li>
+                                                <li>1.25倍</li>
+                                                <li>1.5倍</li>
+                                                <li>2倍</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <i class="iconfont iconziyuan fullScreen"></i>
+                                </div>
+
+                            </div>
+                            <div class="progressbar">
+                                <div class="curentTime"></div>
+                                <div class="controlBtn"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <script src="./player/index.js"></script>
+</body>
+</html>
